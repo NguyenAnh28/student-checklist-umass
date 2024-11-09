@@ -3,60 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON Data Display</title>
+  <title>University Preparation Analytics</title>
   <style>
+    /* Styles for the page layout */
     body {
       font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 80px;
     }
     .container {
-      width: 80%;
-      margin: auto;
+      width: 90%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
     }
-    .data-item {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 5px;
+    /* Flex layout for the charts */
+    .chart-container {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 20px;
     }
-    .data-item h3 {
-      margin: 0;
+    .chart-box {
+      flex: 1;
+      min-width: 0; /* Ensures charts resize properly on smaller screens */
+    }
+    canvas {
+      width: 100%; /* Ensures each chart takes full width of its container */
+      height: 300px;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <div class="header">
+    <h1>University Preparation Analytics</h1>
+  </div>
   <div class="container">
-    <h1>User Profiles</h1>
-    <div id="data-container"></div>
+    <h2>Analytics Overview</h2>
+    <div class="chart-container">
+      <!-- Left Chart: Trend of Submissions by Date -->
+      <div class="chart-box">
+        <h3>Trend of Submissions by Date</h3>
+        <canvas id="trendChart"></canvas>
+      </div>
+      <!-- Right Chart: Submission Quantity by Status -->
+      <div class="chart-box">
+        <h3>Submission Quantity by Status</h3>
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
   </div>
 
   <script>
-    // Function to fetch and display data
-    async function fetchData() {
-      try {
-        const response = await fetch('data.json');
-        const data = await response.json();
-
-        // Container to display data
-        const container = document.getElementById('data-container');
-
-        // Generate HTML for each data item
-        data.forEach(item => {
-          const itemDiv = document.createElement('div');
-          itemDiv.classList.add('data-item');
-          itemDiv.innerHTML = `
-            <h3>${item.name}</h3>
-            <p><strong>Role:</strong> ${item.role}</p>
-            <p><strong>Location:</strong> ${item.location}</p>
-          `;
-          container.appendChild(itemDiv);
-        });
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+    // Fetch the analytics data from the API
+    async function fetchAnalyticsData() {
+      const response = await fetch("/api/students");
+      const data = await response.json();
+      return data.students;
     }
 
-    // Call fetchData on page load
-    fetchData();
+    // Process the data for both charts
+    async function renderCharts() {
+      const students = await fetchAnalyticsData();
+
+      // Aggregate data for the trend chart
+      const dateCounts = {};
+      students.forEach(student => {
+        const date = new Date(student.submission_time).toISOString().split("T")[0];
+        dateCounts[date] = (dateCounts[date] || 0) + 1;
+      });
+      const sortedDates = Object.keys(dateCounts).sort();
+      const trendData = sortedDates.map(date => dateCounts[date]);
+
+      // Render the line chart for submission trends
+      const trendCtx = document.getElementById('trendChart').getContext('2d');
+      new Chart(trendCtx, {
+        type: 'line',
+        data: {
+          labels: sortedDates,
+          datasets: [{
+            label: 'Submissions by Date',
+            data: trendData,
+            borderColor: 'blue',
+            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+            fill: true
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'Date' } },
+            y: { title: { display: true, text: 'Number of Submissions' }, beginAtZero: true }
+          }
+        }
+      });
+
+      // Aggregate data for the status bar chart
+      const statusCounts = { "completed": 0, "partially completed": 0, "not started": 0 };
+      students.forEach(student => {
+        if (statusCounts[student.checklist_status] !== undefined) {
+          statusCounts[student.checklist_status] += 1;
+        }
+      });
+
+      // Render the bar chart for submission status
+      const statusCtx = document.getElementById('statusChart').getContext('2d');
+      new Chart(statusCtx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(statusCounts),
+          datasets: [{
+            label: 'Submissions by Status',
+            data: Object.values(statusCounts),
+            backgroundColor: ['green', 'orange', 'red']
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'Status' } },
+            y: { title: { display: true, text: 'Number of Submissions' }, beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    // Call the function to render charts on page load
+    renderCharts();
   </script>
 </body>
 </html>

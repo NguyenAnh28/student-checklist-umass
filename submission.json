@@ -1,0 +1,11 @@
+{
+    "students": [
+        {
+            "student_name": "Anh Trinh",
+            "student_id": "0192483",
+            "student_email": "antrinh@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T11:06:35.799753"
+        }
+    ]
+}
