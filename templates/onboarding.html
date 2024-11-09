@@ -1,125 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMass Amherst Student Checklist</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #ccc;
-            z-index: 1000;
-        }
-        .container {
-            margin-top: 90px; /* Space for the fixed header */
-            width: 700px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: auto;
-        }
-        .content {
-            display: flex;
-            justify-content: space-between;
-        }
-        .section {
-            width: 48%;
-        }
-        .section h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .checklist-item {
-            margin: 5px 0;
-        }
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Preparation Checklist</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    /* Fixed Header Styling */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #fff;
+      color: #000;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    .header img {
+      width: 50px;
+      height: auto;
+    }
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    /* Main Container Styling */
+    .container {
+      width: 80%;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 0; /* Remove gap between header and container */
+    }
+    /* Flex layout for form and checklist sections */
+    .content {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    /* Form Section on the Left */
+    .form-section {
+      flex: 1;
+      order: 1;
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+    }
+    .form-section h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #333;
+    }
+    /* Checklist Section on the Right */
+    .checklist-section {
+      flex: 1;
+      order: 2;
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+    }
+    .checklist-section h3 {
+      font-size: 20px;
+      color: #333;
+    }
+    /* Form Styling */
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="text"], input[type="email"], input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    /* Checklist Styling */
+    .checklist-section ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+    .checklist-section li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #333;
+    }
+    .checklist-section input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>University of Massachusetts Amherst</header>
-    <div class="container">
-        <div class="content">
-            <div class="section" id="student-info">
-                <h2>Required Information</h2>
-                <label for="student-name">Student Name:</label>
-                <input type="text" id="student-name" placeholder="Enter your name">
-                
-                <label for="student-id">Student ID:</label>
-                <input type="text" id="student-id" placeholder="Enter your student ID">
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Enter your email">
-            </div>
+  <!-- Fixed Header Section -->
+  <div class="header">
+    <img src="https://www.umass.edu/sites/default/files/2023-03/UMass_Seal_Medium_PMS_202_0.png" alt="UMass Logo">
+    <h1>University of Massachusetts Amherst</h1>
+  </div>
 
-            <div class="section" id="checklist">
-                <h2>Pre-Arrival Checklist</h2>
-                <div class="checklist-item">
-                    <input type="checkbox" id="passport" name="passport">
-                    <label for="passport">Ensure passport validity (at least 6 months)</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="visa" name="visa">
-                    <label for="visa">Obtain student visa (F-1 or J-1)</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="i-20" name="i-20">
-                    <label for="i-20">Receive and sign Form I-20</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="housing" name="housing">
-                    <label for="housing">Arrange for on-campus or off-campus housing</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="flight" name="flight">
-                    <label for="flight">Book a flight to the U.S.</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="vaccinations" name="vaccinations">
-                    <label for="vaccinations">Complete required vaccinations and obtain records</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="orientation" name="orientation">
-                    <label for="orientation">Register for international student orientation</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="finances" name="finances">
-                    <label for="finances">Set up financial arrangements and have access to funds</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="insurance" name="insurance">
-                    <label for="insurance">Secure health insurance for the duration of your stay</label>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- Main Container -->
+  <div class="container">
+    <form action="/submit" method="POST" class="content">
+      <!-- Form Section (on the Left) -->
+      <div class="form-section">
+        <h2>Student Information</h2>
+        <label for="student_name">Name:</label>
+        <input type="text" id="student_name" name="student_name" required>
+
+        <label for="student_id">Student ID:</label>
+        <input type="text" id="student_id" name="student_id" required>
+
+        <label for="student_email">Email:</label>
+        <input type="email" id="student_email" name="student_email" required>
+
+        <input type="submit" value="Submit">
+      </div>
+
+      <!-- Checklist Section (on the Right) -->
+      <div class="checklist-section">
+        <h3>Checklist</h3>
+        <ul>
+          <li><input type="checkbox" name="checklist" value="placement_tests"> Complete any necessary placement tests or assessments</li>
+          <li><input type="checkbox" name="checklist" value="transcripts"> Submit final transcripts and necessary documentation</li>
+          <li><input type="checkbox" name="checklist" value="insurance"> Enroll in university health insurance</li>
+          <li><input type="checkbox" name="checklist" value="housing"> Secure on-campus or off-campus housing</li>
+          <li><input type="checkbox" name="checklist" value="orientation"> Attend orientation sessions</li>
+          <li><input type="checkbox" name="checklist" value="advisor_meeting"> Meet with an academic advisor to register for classes</li>
+          <li><input type="checkbox" name="checklist" value="student_id"> Obtain your student ID card</li>
+          <li><input type="checkbox" name="checklist" value="email_setup"> Set up your university email account</li>
+          <li><input type="checkbox" name="checklist" value="policies"> Review and understand academic policies and resources</li>
+          <li><input type="checkbox" name="checklist" value="campus_tour"> Familiarize yourself with campus facilities and services</li>
+        </ul>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
-
-
 
