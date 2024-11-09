@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMass Amherst Student Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 600px;
+            border: 2px solid #333;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin: 0 0 10px;
+        }
+        .checklist-item {
+            margin: 5px 0;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section" id="student-info">
+            <h2>Required Information</h2>
+            <label for="student-name">Student Name:</label>
+            <input type="text" id="student-name" placeholder="Enter your name">
+            
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" placeholder="Enter your student ID">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+        </div>
+
+        <div class="section" id="checklist">
+            <h2>Pre-Arrival Checklist</h2>
+            <div class="checklist-item">
+                <input type="checkbox" id="passport" name="passport">
+                <label for="passport">Ensure passport validity (at least 6 months)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="visa" name="visa">
+                <label for="visa">Obtain student visa (F-1 or J-1)</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="i-20" name="i-20">
+                <label for="i-20">Receive and sign Form I-20</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="housing" name="housing">
+                <label for="housing">Arrange for on-campus or off-campus housing</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="flight" name="flight">
+                <label for="flight">Book a flight to the U.S.</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="vaccinations" name="vaccinations">
+                <label for="vaccinations">Complete required vaccinations and obtain records</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="orientation" name="orientation">
+                <label for="orientation">Register for international student orientation</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="finances" name="finances">
+                <label for="finances">Set up financial arrangements and have access to funds</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="insurance" name="insurance">
+                <label for="insurance">Secure health insurance for the duration of your stay</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
