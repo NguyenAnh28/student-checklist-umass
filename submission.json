@@ -188,6 +188,20 @@
             "student_email": "nguyenaiwdu@umass.edu",
             "checklist_status": "partially completed",
             "submission_time": "2024-11-09T15:37:04.553879"
+        },
+        {
+            "student_name": "bruh",
+            "student_id": "89123",
+            "student_email": "231@123.12389",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:43:57.320917"
+        },
+        {
+            "student_name": "bruh",
+            "student_id": "89123",
+            "student_email": "231@123.12389",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:44:01.865094"
         }
     ]
 }
