@@ -67,7 +67,7 @@ async def submit_student(
     save_data(students_data)
 
     # Return updated onboarding page
-    return templates.TemplateResponse("onboarding.html", {"request": {}})
+    return templates.TemplateResponse("analytics.html", {"request": {}})
 
 # New API route to retrieve data from submission.json
 @app.get("/api/students", response_class=JSONResponse)

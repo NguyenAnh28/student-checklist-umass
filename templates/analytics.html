@@ -8,16 +8,31 @@
     /* Styles for the page layout */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background: url('https://americanisraelite.com/wp-content/uploads/2024/04/US-Education-Department-.jpeg') no-repeat center center fixed;
+      background-size: cover; /* Ensures the background covers the whole page */
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
       padding-top: 80px;
+      color: #000000; /* White text for contrast */
     }
+
+    /* Overlay for the faded effect */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay with opacity for the fade */
+      z-index: -1; /* Places the overlay behind the content */
+    }
+
     .container {
       width: 90%;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.8); /* White with some transparency */
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -30,13 +45,42 @@
       justify-content: space-between;
       margin-top: 20px;
     }
-    .chart-box {
+    /* Left half of the box where total submissions will be displayed */
+    .left-half {
+      display: flex;
       flex: 1;
-      min-width: 0; /* Ensures charts resize properly on smaller screens */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Vertically centers the number */
+      height: 300px; /* Ensure proper height for the content */
+      text-align: center;
+    }
+    /* Right half of the box for the submission status chart */
+    .right-half {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .total-submissions {
+      font-size: 120px; /* Larger font size */
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .total-submissions-label {
+      font-size: 18px;
+      color: #333;
     }
     canvas {
       width: 100%; /* Ensures each chart takes full width of its container */
       height: 300px;
+    }
+    /* Center the "Analytics Overview" title */
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -46,15 +90,15 @@
     <h1>University Preparation Analytics</h1>
   </div>
   <div class="container">
-    <h2>Analytics Overview</h2>
+    <h2>Analytics Overview</h2> <!-- This title is now centered -->
     <div class="chart-container">
-      <!-- Left Chart: Trend of Submissions by Date -->
-      <div class="chart-box">
-        <h3>Trend of Submissions by Date</h3>
-        <canvas id="trendChart"></canvas>
+      <!-- Left half with Total Submissions -->
+      <div class="left-half">
+        <div class="total-submissions" id="totalSubmissions">0</div>
+        <div class="total-submissions-label">Submissions so far</div>
       </div>
-      <!-- Right Chart: Submission Quantity by Status -->
-      <div class="chart-box">
+      <!-- Right half with Submission Quantity by Status -->
+      <div class="right-half">
         <h3>Submission Quantity by Status</h3>
         <canvas id="statusChart"></canvas>
       </div>
@@ -73,36 +117,21 @@
     async function renderCharts() {
       const students = await fetchAnalyticsData();
 
-      // Aggregate data for the trend chart
-      const dateCounts = {};
-      students.forEach(student => {
-        const date = new Date(student.submission_time).toISOString().split("T")[0];
-        dateCounts[date] = (dateCounts[date] || 0) + 1;
-      });
-      const sortedDates = Object.keys(dateCounts).sort();
-      const trendData = sortedDates.map(date => dateCounts[date]);
+      // Aggregate data for total submissions
+      const totalSubmissions = students.length;
 
-      // Render the line chart for submission trends
-      const trendCtx = document.getElementById('trendChart').getContext('2d');
-      new Chart(trendCtx, {
-        type: 'line',
-        data: {
-          labels: sortedDates,
-          datasets: [{
-            label: 'Submissions by Date',
-            data: trendData,
-            borderColor: 'blue',
-            backgroundColor: 'rgba(0, 0, 255, 0.1)',
-            fill: true
-          }]
-        },
-        options: {
-          scales: {
-            x: { title: { display: true, text: 'Date' } },
-            y: { title: { display: true, text: 'Number of Submissions' }, beginAtZero: true }
-          }
+      // Update the Total Submissions display with a gradual increase
+      let currentCount = 0;
+      const totalSubmissionsElement = document.getElementById('totalSubmissions');
+
+      const interval = setInterval(() => {
+        if (currentCount < totalSubmissions) {
+          currentCount++;
+          totalSubmissionsElement.textContent = currentCount;
+        } else {
+          clearInterval(interval);
         }
-      });
+      }, 10);
 
       // Aggregate data for the status bar chart
       const statusCounts = { "completed": 0, "partially completed": 0, "not started": 0 };

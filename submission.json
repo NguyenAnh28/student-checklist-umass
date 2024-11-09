@@ -5,7 +5,189 @@
             "student_id": "0192483",
             "student_email": "antrinh@umass.edu",
             "checklist_status": "partially completed",
-            "submission_time": "2024-11-09T11:06:35.799753"
+            "submission_time": "2024-11-09T09:06:35.799753"
+        },
+        {
+            "student_name": "Nguyen Trinh",
+            "student_id": "190384",
+            "student_email": "nguyenanh@umass.edu",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-09T11:57:22.138470"
+        },
+        {
+            "student_name": "ABC",
+            "student_id": "18927",
+            "student_email": "abc@gmail.com",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-09T11:58:22.862638"
+        },
+        {
+            "student_name": "Anh Nguyen",
+            "student_id": "891237",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-09T13:50:35.951237"
+        },
+        {
+            "student_name": "Anh Nguyen",
+            "student_id": "891237",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-09T13:51:21.898429"
+        },
+        {
+            "student_name": "Anh Nguyen",
+            "student_id": "891237",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-09T13:51:31.443407"
+        },
+        {
+            "student_name": "Carla Garcia",
+            "student_id": "4",
+            "student_email": "carla.garcia@example.com",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-20T10:03:45.098734"
+        },
+        {
+            "student_name": "David Lee",
+            "student_id": "5",
+            "student_email": "david.lee@example.com",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-10-20T11:47:12.212307"
+        },
+        {
+            "student_name": "adiawdih",
+            "student_id": "91289183",
+            "student_email": "nguywea@aijdiawd.cionon",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:20:03.952055"
+        },
+        {
+            "student_name": "awdawdb",
+            "student_id": "iajbwdiabd",
+            "student_email": "iawbdaibwd@aiwbdaibd.cioanwd",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:20:33.951537"
+        },
+        {
+            "student_name": "awdawdb",
+            "student_id": "iajbwdiabd",
+            "student_email": "iawbdaibwd@aiwbdaibd.cioanwd",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:23:44.083271"
+        },
+        {
+            "student_name": "awdawdb",
+            "student_id": "iajbwdiabd",
+            "student_email": "iawbdaibwd@aiwbdaibd.cioanwd",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:24:26.479499"
+        },
+        {
+            "student_name": "awdawdb",
+            "student_id": "iajbwdiabd",
+            "student_email": "iawbdaibwd@aiwbdaibd.cioanwd",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:26:33.918992"
+        },
+        {
+            "student_name": "ajdnajwihd",
+            "student_id": "oiahdioahwdoi",
+            "student_email": "oaihd@oiadoahwd.aiowduaiuwd",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:26:42.867570"
+        },
+        {
+            "student_name": "",
+            "student_id": "string",
+            "student_email": "string",
+            "checklist_status": "not started",
+            "submission_time": "2024-10-27T00:47:08.978124"
+        },
+        {
+            "student_name": "Nguyen Anh",
+            "student_id": "awdawd",
+            "student_email": "awdad@awdawd.cawd",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-06T00:32:01.187319"
+        },
+        {
+            "student_name": "iasbdi",
+            "student_id": "1212",
+            "student_email": "antriubuib@umass.edu",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-06T00:32:32.240686"
+        },
+        {
+            "student_name": "iasbdi",
+            "student_id": "1212",
+            "student_email": "antriubuib@umass.edu",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-06T00:33:10.070226"
+        },
+        {
+            "student_name": "Anh Nguyen",
+            "student_id": "891237",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-09T13:53:18.945424"
+        },
+        {
+            "student_name": "Anh Nguyen",
+            "student_id": "891237",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-09T13:54:35.168323"
+        },
+        {
+            "student_name": "yswtgw",
+            "student_id": "fsf",
+            "student_email": "fasfafa@GMAIL.COM",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-09T14:17:21.764547"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891234",
+            "student_email": "nguyenaiwdu@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:31:40.479297"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891234",
+            "student_email": "nguyenaiwdu@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:35:26.768918"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891234",
+            "student_email": "nguyenaiwdu@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:36:15.611648"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891234",
+            "student_email": "nguyenaiwdu@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:36:50.850423"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891234",
+            "student_email": "nguyenaiwdu@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:37:01.352974"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891234",
+            "student_email": "nguyenaiwdu@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-09T15:37:04.553879"
         }
     ]
 }

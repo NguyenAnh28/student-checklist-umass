@@ -14,12 +14,28 @@
     /* Body Styling */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background: url('https://americanisraelite.com/wp-content/uploads/2024/04/US-Education-Department-.jpeg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding-top: 90px; /* Space for fixed header */
+      color: #fff; /* White text for contrast */
     }
+
+    /* Overlay for the faded effect */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay with opacity for the fade */
+      z-index: -1; /* Places the overlay behind the content */
+    }
+
     /* Fixed Header Styling */
     .header {
       position: fixed;
@@ -43,21 +59,24 @@
       font-size: 24px;
       margin: 0;
     }
+
     /* Main Container Styling */
     .container {
       width: 80%;
-      background-color: #fff;
+      max-width: 1200px; /* Optional: limit max width */
+      background-color: rgba(255, 255, 255, 0.8); /* White with some transparency */
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-top: 90px; /* Added space for fixed header */
     }
+
     /* Flex layout for form and checklist sections */
     .content {
       display: flex;
       gap: 30px;
       flex-wrap: wrap;
     }
+
     /* Form Section on the Left */
     .form-section {
       flex: 1;
@@ -71,6 +90,7 @@
       font-size: 20px;
       color: #333;
     }
+
     /* Checklist Section on the Right */
     .checklist-section {
       flex: 1;
@@ -83,6 +103,7 @@
       font-size: 20px;
       color: #333;
     }
+
     /* Form Styling */
     label {
       display: block;
@@ -110,6 +131,7 @@
     input[type="submit"]:hover {
       background-color: #0056b3;
     }
+
     /* Checklist Styling */
     .checklist-section ul {
       list-style-type: none;
@@ -160,10 +182,10 @@
           <li><input type="checkbox" name="checklist" value="placement_tests"> Complete any necessary placement tests or assessments</li>
           <li><input type="checkbox" name="checklist" value="transcripts"> Submit final transcripts and necessary documentation</li>
           <li><input type="checkbox" name="checklist" value="insurance"> Enroll in university health insurance</li>
-          <li><input type="checkbox" name="checklist" value="housing"> Secure on-campus or off-campus housing</li>
-          <li><input type="checkbox" name="checklist" value="orientation"> Attend orientation sessions</li>
+          <li><input type="checkbox" name="checklist" value="housing"> Register housing appointment</li>
+          <li><input type="checkbox" name="checklist" value="orientation"> Attend mandatory first-year orientation</li>
           <li><input type="checkbox" name="checklist" value="advisor_meeting"> Meet with an academic advisor to register for classes</li>
-          <li><input type="checkbox" name="checklist" value="student_id"> Obtain your student ID card</li>
+          <li><input type="checkbox" name="checklist" value="student_id"> Obtain your UMass student ID card</li>
           <li><input type="checkbox" name="checklist" value="email_setup"> Set up your university email account</li>
           <li><input type="checkbox" name="checklist" value="policies"> Review and understand academic policies and resources</li>
           <li><input type="checkbox" name="checklist" value="campus_tour"> Familiarize yourself with campus facilities and services</li>
@@ -173,3 +195,4 @@
   </div>
 </body>
 </html>
+
