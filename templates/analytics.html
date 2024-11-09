@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+    }
+    .data-item {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .data-item h3 {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Profiles</h1>
+    <div id="data-container"></div>
+  </div>
+
+  <script>
+    // Function to fetch and display data
+    async function fetchData() {
+      try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+
+        // Container to display data
+        const container = document.getElementById('data-container');
+
+        // Generate HTML for each data item
+        data.forEach(item => {
+          const itemDiv = document.createElement('div');
+          itemDiv.classList.add('data-item');
+          itemDiv.innerHTML = `
+            <h3>${item.name}</h3>
+            <p><strong>Role:</strong> ${item.role}</p>
+            <p><strong>Location:</strong> ${item.location}</p>
+          `;
+          container.appendChild(itemDiv);
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    // Call fetchData on page load
+    fetchData();
+  </script>
+</body>
+</html>
