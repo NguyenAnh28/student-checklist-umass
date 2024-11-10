@@ -20,8 +20,8 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding-top: 90px; /* Space for fixed header */
-      color: #fff; /* White text for contrast */
+      padding-top: 90px;
+      color: #fff;
     }
 
     /* Overlay for the faded effect */
@@ -32,8 +32,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4); /* Dark overlay with opacity for the fade */
-      z-index: -1; /* Places the overlay behind the content */
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
     }
 
     /* Fixed Header Styling */
@@ -63,8 +63,8 @@
     /* Main Container Styling */
     .container {
       width: 80%;
-      max-width: 1200px; /* Optional: limit max width */
-      background-color: rgba(255, 255, 255, 0.8); /* White with some transparency */
+      max-width: 1200px;
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -78,38 +78,36 @@
     }
 
     /* Form Section on the Left */
-    .form-section {
-      flex: 1;
-      order: 1;
-      padding: 20px;
-      border: none;
-      border-radius: 8px;
-    }
-    .form-section h2 {
-      margin-top: 0;
-      font-size: 20px;
-      color: #333;
-    }
-
-    /* Checklist Section on the Right */
+    .form-section,
     .checklist-section {
       flex: 1;
-      order: 2;
       padding: 20px;
-      border: none;
       border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.6); /* White with 60% opacity */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .form-section:hover,
+    .checklist-section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form Section Specific Styling */
+    .form-section h2,
     .checklist-section h3 {
       font-size: 20px;
       color: #333;
+      margin-top: 0;
     }
-
+    
     /* Form Styling */
     label {
       display: block;
       margin-top: 10px;
       font-weight: bold;
-      color: #333; /* Neutral color for labels */
+      color: #333;
     }
     input[type="text"], input[type="email"], input[type="submit"] {
       width: 100%;
@@ -117,7 +115,7 @@
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      color: #333; /* Text color for input fields */
+      color: #333;
     }
     input[type="submit"] {
       background-color: #007BFF;
@@ -177,7 +175,7 @@
 
       <!-- Checklist Section (on the Right) -->
       <div class="checklist-section">
-        <h3>Checklist</h3>
+        <h3>Onboarding Checklist</h3>
         <ul>
           <li><input type="checkbox" name="checklist" value="placement_tests"> Complete any necessary placement tests or assessments</li>
           <li><input type="checkbox" name="checklist" value="transcripts"> Submit final transcripts and necessary documentation</li>
@@ -195,4 +193,3 @@
   </div>
 </body>
 </html>
-
