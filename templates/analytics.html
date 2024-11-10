@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>University Preparation Analytics</title>
   <style>
-    /* Styles for the page layout */
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
     body {
       font-family: Arial, sans-serif;
       background: url('https://americanisraelite.com/wp-content/uploads/2024/04/US-Education-Department-.jpeg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding-top: 80px;
-      color: #000000;
+      padding-top: 90px;
+      color: #fff;
     }
 
     /* Overlay for the faded effect */
@@ -30,135 +37,185 @@
       z-index: -1;
     }
 
-    .container {
-      width: 90%;
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
+    /* Fixed Header Styling */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #fff;
+      color: #000;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
+
+    .header img {
+      width: 50px;
+      height: auto;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+      color: #333; /* Darker color for the header */
+    }
+
+    /* Main Container Styling */
+    .container {
+      width: 90%; /* Increased width to make the container larger */
+      max-width: 1400px; /* Increased max-width for more space */
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      padding: 40px; /* Increased padding inside the container */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 100px; /* Ensure the container is below the header */
+    }
+
+    /* Title Styling */
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333; /* Darker color for better contrast */
+    }
+
+    /* Flex layout for the charts */
     .chart-container {
       display: flex;
       gap: 20px;
       justify-content: space-between;
       margin-top: 20px;
     }
-    .left-half {
+
+    /* Chart Box Styling */
+    .chart-box {
+      flex: 1.5; /* Increase the flex value to make the chart boxes larger */
+      min-width: 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 30px; /* Increased padding for more space */
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Total Submission Box Styling */
+    .total-submission-box {
+      flex: 1.5; /* Increased flex value for the Total Submissions box */
+      min-width: 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 40px; /* Increased padding to make it larger */
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       display: flex;
-      flex: 1;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 300px;
-      text-align: center;
-    }
-    .right-half {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .total-submissions {
-      font-size: 120px;
+      font-size: 50px; /* Increased font size for the number */
       font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
+      color: #333; /* Dark color for visibility */
     }
-    .total-submissions-label {
-      font-size: 18px;
-      color: #333;
+
+    /* Total Submissions Title Styling */
+    .total-submission-box h3 {
+      font-size: 20px;
+      color: #333; /* Dark color for the title */
+      margin-bottom: 20px;
     }
+
+    /* Chart Titles Styling */
+    .chart-box h3 {
+      font-size: 20px;
+      color: #333; /* Dark color for chart box titles */
+      margin-bottom: 20px;
+    }
+
+    /* Chart Styling */
     canvas {
       width: 100%;
       height: 300px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .merged-box {
-      width: 90%;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-    }
-    .status-display {
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-    .tasks-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 15px;
-      border-top: 1px solid #ccc;
-    }
-    .task-item {
-      width: 100%;
-      padding: 10px;
-      background-color: #f8f9fa;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 16px;
-    }
-    .task-status {
-      font-size: 14px;
-      color: #007bff;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <!-- Fixed Header Section -->
   <div class="header">
-    <h1>University Preparation Analytics</h1>
+    <img src="https://www.umass.edu/sites/default/files/2023-03/UMass_Seal_Medium_PMS_202_0.png" alt="UMass Logo">
+    <h1>University of Massachusetts Amherst</h1>
   </div>
+
   <div class="container">
-    <h2>Analytics Overview</h2>
+    <h2>Academic Advisor - Analytic Dashboard</h2>
     <div class="chart-container">
-      <div class="left-half">
-        <div class="total-submissions" id="totalSubmissions">0</div>
-        <div class="total-submissions-label">Submissions so far</div>
+      <!-- Total Submissions Box -->
+      <div class="total-submission-box">
+        <h3>Total Submissions</h3>
+        <span id="totalSubmissions">0</span>
       </div>
-      <div class="right-half">
+      <!-- Left Chart: Trend of Submissions by Date -->
+      <div class="chart-box">
+        <h3>Trend of Submissions by Date</h3>
+        <canvas id="trendChart"></canvas>
+      </div>
+      <!-- Right Chart: Submission Quantity by Status -->
+      <div class="chart-box">
         <h3>Submission Quantity by Status</h3>
         <canvas id="statusChart"></canvas>
       </div>
     </div>
   </div>
-  
 
   <script>
+    // Fetch the analytics data from the API
     async function fetchAnalyticsData() {
       const response = await fetch("/api/students");
       const data = await response.json();
       return data.students;
     }
 
+    // Process the data for both charts
     async function renderCharts() {
       const students = await fetchAnalyticsData();
 
+      // Calculate the total number of submissions
       const totalSubmissions = students.length;
-      let currentCount = 0;
-      const totalSubmissionsElement = document.getElementById('totalSubmissions');
+      document.getElementById('totalSubmissions').textContent = totalSubmissions;
 
-      const interval = setInterval(() => {
-        if (currentCount < totalSubmissions) {
-          currentCount++;
-          totalSubmissionsElement.textContent = currentCount;
-        } else {
-          clearInterval(interval);
+      // Aggregate data for the trend chart (based on submission_time or similar)
+      const dateCounts = {};
+      students.forEach(student => {
+        const date = new Date(student.submission_time || student.submission_date).toISOString().split("T")[0];
+        dateCounts[date] = (dateCounts[date] || 0) + 1;
+      });
+
+      const sortedDates = Object.keys(dateCounts).sort();
+      const trendData = sortedDates.map(date => dateCounts[date]);
+
+      // Render the line chart for submission trends
+      const trendCtx = document.getElementById('trendChart').getContext('2d');
+      new Chart(trendCtx, {
+        type: 'line',
+        data: {
+          labels: sortedDates,
+          datasets: [{
+            label: 'Submissions by Date',
+            data: trendData,
+            borderColor: 'blue',
+            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+            fill: true
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'Date' } },
+            y: { title: { display: true, text: 'Number of Submissions' }, beginAtZero: true }
+          }
         }
-      }, 10);
+      });
 
+      // Aggregate data for the status bar chart
       const statusCounts = { "completed": 0, "partially completed": 0, "not started": 0 };
       students.forEach(student => {
         if (statusCounts[student.checklist_status] !== undefined) {
@@ -166,6 +223,7 @@
         }
       });
 
+      // Render the bar chart for submission status
       const statusCtx = document.getElementById('statusChart').getContext('2d');
       new Chart(statusCtx, {
         type: 'bar',
@@ -184,41 +242,10 @@
           }
         }
       });
-
-      displayUserStatus(students);
-      displayIncompleteTasks();
     }
 
-    function displayUserStatus(students) {
-      // Simulated logic to determine user's submission status
-      const user = students.find(student => student.id === 1); // Replace with actual logic to get the current user
-      const userStatus = user ? user.checklist_status : "Unknown";
-
-      document.getElementById('userStatus').innerHTML = `Your current submission status is: <strong>${userStatus}</strong>`;
-    }
-
-    function displayIncompleteTasks() {
-      const tasks = [
-        { name: "Submit transcript", status: "Pending" },
-        { name: "Complete application form", status: "Pending" },
-        { name: "Submit recommendation letters", status: "In Progress" },
-        { name: "Pay application fee", status: "Completed" },
-        { name: "Schedule interview", status: "Pending" }
-      ];
-
-      const completionTasksElement = document.getElementById('completionTasks');
-      completionTasksElement.innerHTML = '';
-
-      tasks.forEach(task => {
-        const taskDiv = document.createElement('div');
-        taskDiv.className = 'task-item';
-        taskDiv.innerHTML = `<span>${task.name}</span><span class="task-status">${task.status}</span>`;
-        completionTasksElement.appendChild(taskDiv);
-      });
-    }
-
+    // Call the function to render charts on page load
     renderCharts();
   </script>
 </body>
 </html>
-
