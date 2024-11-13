@@ -258,6 +258,62 @@
             "student_email": "iabwdiub@aiuwd.auowdh",
             "checklist_status": "not started",
             "submission_time": "2024-11-10T10:50:45.648364"
+        },
+        {
+            "student_name": "Anh Nguyen Trinh",
+            "student_id": "9812731",
+            "student_email": "antrinh@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-10T10:53:37.680982"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "918273",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-10T10:53:53.447892"
+        },
+        {
+            "student_name": "Trinh",
+            "student_id": "918231",
+            "student_email": "nguyenanh@gmail.com",
+            "checklist_status": "completed",
+            "submission_time": "2024-11-10T10:54:15.017646"
+        },
+        {
+            "student_name": "Anh Nguyen",
+            "student_id": "0192483",
+            "student_email": "antrinh@umass.edu",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-10T12:20:24.303157"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "891237",
+            "student_email": "nguyen@umass.edu",
+            "checklist_status": "not started",
+            "submission_time": "2024-11-10T12:20:32.622790"
+        },
+        {
+            "student_name": "Anh",
+            "student_id": "198273",
+            "student_email": "nguyena@gmail.com",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-10T13:48:06.339697"
+        },
+        {
+            "student_name": "Anh Trinh",
+            "student_id": "0192483",
+            "student_email": "antrinh@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-10T14:42:41.257736"
+        },
+        {
+            "student_name": "Anh Trinh",
+            "student_id": "891237",
+            "student_email": "antrinh@umass.edu",
+            "checklist_status": "partially completed",
+            "submission_time": "2024-11-10T14:51:56.774677"
         }
     ]
 }
